@@ -1,0 +1,99 @@
+.container-left {
+    display: flexbox;
+    width: 280px;
+    height: 100vh;
+    background-color: #18191A;
+    overflow-y: scroll;
+}
+
+.button-group-container {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.button {
+    border-radius: 10px;
+    margin-bottom: 5pxpx;
+    transition: background-color 0.1s, border-radius 0.3s;
+    height: 52px;
+    width: 280px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+}
+
+.button:hover {
+    background-color: #303031;
+    border-radius: 10px;
+
+}
+
+.container {
+    display: flex;
+    min-height: 56px;
+    border-bottom: 2px solid #3A3B3C;
+    width: 100%;
+}
+
+.grid-container {
+    text-align: center;
+    background-color: #242526;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    margin-left: 15px;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    margin-right: 15px;
+}
+
+.center-grid {
+    display: flex;
+    text-align: center;
+    flex: 1;
+    margin-left: 6%;
+}
+
+.clickable-icon {
+    cursor: pointer;
+}
+
+/* 
+ .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 56px;
+    border-bottom: 2px solid #3A3B3C;
+}
+
+.grid-container {
+    text-align: center;
+    background-color: #242526;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; /* Center horizontally */
+/* }
+
+.left, .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.center-grid {
+    text-align: center;
+} */
