@@ -1,0 +1,7 @@
+.grid-container {
+    display: flex;
+}
+
+.divider {
+    background-color: #3E4042;
+}
