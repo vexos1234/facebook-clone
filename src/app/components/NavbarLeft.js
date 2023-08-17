@@ -18,6 +18,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
+import "./styles.css";
 
 export default function NavbarLeft() {
   return (

@@ -1,7 +1,42 @@
+.container2 {
+    margin-top: 15px;
+    height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
+.button-group-contacts {
+    display: flex;
+}
+
+.button2 {
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: background-color 0.1s, border-radius 0.3s;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    justify-content: start;
+    width: 344px;
+    height: 52px;
+}
+
+.button2:hover {
+    background-color: #303031;
+    border-radius: 10px;
+}
+
+.divider2 {
+    background-color: #3E4042;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 328px;
+    height: 1px;
+}
+
+/* left */
 
 .button .MuiSvgIcon-root {
-    font-size: 36px;
+    font-size: 36px; /* icon size */
   }
 
 .divider {
@@ -10,13 +45,13 @@
     width: 320px;
     margin-top: 10px;
 }
+
 .container-left {
-    display: flexbox;
-    
     width: 360px;
-    height: 100vh;
+    height: 90vh;
     background-color: #18191A;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .button-group-container {
@@ -41,6 +76,7 @@
 
 }
 
+/* top */
 .container {
     display: flex;
     min-height: 56px;

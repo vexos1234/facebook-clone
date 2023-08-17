@@ -1,3 +1,21 @@
+.page-container {
+    display: flex;
+}
+
+.contacts-right {
+    flex: 1;
+    height: 100vh;
+}
+
+.content-mid {
+    flex: 2;
+    background-color: #18191A;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
 .grid-container {
     display: flex;
 }

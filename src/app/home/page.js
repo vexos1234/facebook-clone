@@ -1,28 +1,21 @@
-import React from 'react';
-import NavbarTop from '../components/NavbarTop';
-import NavbarLeft from '../components/NavbarLeft';
-import ContactList from '../components/ContactList';
-import { Grid, Stack } from '@mui/material';
-import './styles.css'
+import React from "react";
+import NavbarTop from "../components/NavbarTop";
+import NavbarLeft from "../components/NavbarLeft";
+import ContactList from "../components/ContactList";
+import { Grid, Paper, Stack } from "@mui/material";
+import "./styles.css";
 
 export default function homepage({ users }) {
-    return (
-        <>
-            <NavbarTop />
-            <Grid container className='grid-container'>
-                <Grid item xs={3}>
-                    <NavbarLeft />
-                </Grid>
-                <Grid item xs={6}>
+  return (
+    <>
+      <NavbarTop />
+      <div className="page-container">
+        <NavbarLeft className="navbar-left" />
 
-                    <h1>content</h1>
+        <Paper className="content-mid">HOLA</Paper>
 
-                </Grid>
-                <Grid item xs={3}>
-                    <ContactList />
-                </Grid>
-            </Grid>
-
-        </>
-    );
+        <ContactList className="contacts-right" />
+      </div>
+    </>
+  );
 }
