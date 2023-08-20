@@ -23,7 +23,7 @@ export default function NavbarTop() {
     const iconSize = 28; // Icon dimensions
 
     return (
-        <div className='container'>
+        <div className='navbar-container'>
             <Grid container spacing={10} className='grid-container'>
                 <Grid item xs={3} className='left'>
                     <Stack direction='row' spacing={2}>

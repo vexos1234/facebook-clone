@@ -1,19 +1,31 @@
 .page-container {
     display: flex;
+    margin-top: 50px
 }
 
 .contacts-right {
     flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     height: 100vh;
+    background-color: lightgray;
 }
 
 .content-mid {
     flex: 2;
     background-color: #18191A;
+    /* Remove height property or set it to auto */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
 }
 
 .navbar-left {
     flex: 1;
+    height: 100vh;
 }
 
 .grid-container {

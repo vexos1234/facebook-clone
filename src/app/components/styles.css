@@ -1,8 +1,30 @@
+/* center content */
+.card-container {
+    background-color: #3E4042;
+    min-width: 590px;
+    max-height: fit-content;
+    border: 1px solid #fefefe;
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    max-width: 590px;
+    /* Align content to the top */
+
+}
+
+
+
+/* right */
+
 .container2 {
     margin-top: 15px;
     height: 90vh;
     overflow-y: auto;
     overflow-x: hidden;
+    position: fixed;
+    right: 0;
+    top: 56px;
+    z-index: 900;
 }
 
 .button-group-contacts {
@@ -18,6 +40,7 @@
     justify-content: start;
     width: 344px;
     height: 52px;
+    color: #fefefe;
 }
 
 .button2:hover {
@@ -33,12 +56,13 @@
     height: 1px;
 }
 
-/* left */
-
 .button .MuiSvgIcon-root {
-    font-size: 36px; /* icon size */
-  }
+    font-size: 36px;
+    /* icon size */
+}
 
+
+/* left */
 .divider {
     background-color: #3E4042;
     margin-left: 5px;
@@ -52,6 +76,9 @@
     background-color: #18191A;
     overflow-y: auto;
     overflow-x: hidden;
+    position: fixed;
+    top: 56px;
+    z-index: 900;
 }
 
 .button-group-container {
@@ -68,6 +95,7 @@
     border-top-width: 4px;
     border-bottom-width: 4px;
     justify-content: start;
+    color: #fefefe;
 }
 
 .button:hover {
@@ -77,11 +105,14 @@
 }
 
 /* top */
-.container {
+.navbar-container {
     display: flex;
     min-height: 56px;
     border-bottom: 2px solid #3A3B3C;
     width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 999;
 }
 
 .grid-container {

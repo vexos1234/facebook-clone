@@ -4,6 +4,7 @@ import NavbarLeft from "../components/NavbarLeft";
 import ContactList from "../components/ContactList";
 import { Grid, Paper, Stack } from "@mui/material";
 import "./styles.css";
+import DynamicCards from "../components/DynamicCards";
 
 export default function homepage({ users }) {
   return (
@@ -11,8 +12,9 @@ export default function homepage({ users }) {
       <NavbarTop />
       <div className="page-container">
         <NavbarLeft className="navbar-left" />
-
-        <Paper className="content-mid">HOLA</Paper>
+        <div className="content-mid">
+          <DynamicCards />
+        </div>
 
         <ContactList className="contacts-right" />
       </div>
