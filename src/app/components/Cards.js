@@ -14,12 +14,15 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
+import ShortcutIcon from '@mui/icons-material/Shortcut';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import dynamic from 'next/dynamic';
 import { useState } from './client-side-import.js'
 import { useEffect } from "react";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import InputWithButtons from "./InputWithButtons";
 
 function formatDate(inputDate) {
     const months = [
@@ -107,12 +110,23 @@ export default function Cards() {
                                 </Avatar>
                             }
                             action={
-                                <IconButton aria-label="settings">
+                                <IconButton
+                                    sx={{ '&:hover': { backgroundColor: 'transparent' } }}
+                                    aria-label="settings"
+                                >
                                     <MoreVertIcon />
                                 </IconButton>
                             }
-                            title={post.name}
-                            subheader={formatDate(post.created)}
+                            title={
+                                <span style={{ fontWeight: 'bold' }}>
+                                    {post.name}
+                                </span>
+                            }
+                            subheader={
+                                <span style={{ color: 'white' }}>
+                                    {formatDate(post.created)}
+                                </span>
+                            }
                         />
                         <CardMedia
                             component="img"
@@ -127,22 +141,31 @@ export default function Cards() {
                                 if you like.
                             </Typography>
                         </CardContent>
-                        <CardActions disableSpacing>
-                            <IconButton aria-label="add to favorites">
-                                <FavoriteIcon />
+                        <CardActions className="card-buttons-container">
+                            <IconButton aria-label="Like" className="card-buttons">
+                                <ThumbUpIcon sx={{ '&:hover': { backgroundColor: 'transparent' } }} />
+                                <Typography sx={{ marginLeft: '5px' }}>Like</Typography>
                             </IconButton>
-                            <IconButton aria-label="share">
-                                <ShareIcon />
+                            <IconButton aria-label="Comments" className="card-buttons">
+                                <ChatBubbleOutlineIcon />
+                                <Typography sx={{ marginLeft: '5px' }}>Comment</Typography>
                             </IconButton>
-                            <DynamicExpandMore
-                                expand={expanded}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more"
-                            >
-                                <ExpandMoreIcon />
-                            </DynamicExpandMore>
+                            <IconButton aria-label="Share" className="card-buttons">
+                                <ShortcutIcon />
+                                <Typography sx={{ marginLeft: '5px' }}>Share</Typography>
+                            </IconButton>
                         </CardActions>
+                        <InputWithButtons className='input-component-container' />
+                        <DynamicExpandMore
+                            expand={expanded}
+                            onClick={handleExpandClick}
+                            aria-expanded={expanded}
+                            aria-label="show more"
+                        >
+                            <Typography sx={{ color: '#B0B3B8', marginLeft: '10px' }}>
+                                View more comments
+                            </Typography>
+                        </DynamicExpandMore>
                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Typography paragraph>Method:</Typography>

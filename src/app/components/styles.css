@@ -1,18 +1,86 @@
-/* center content */
-.card-container {
-    background-color: #3E4042;
-    min-width: 590px;
-    max-height: fit-content;
-    border: 1px solid #fefefe;
-    display: flex;
-    flex-direction: column;
-    /* Stack content vertically */
-    max-width: 590px;
-    /* Align content to the top */
+/* input component */
 
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+    box-shadow: transparent !important;
+    outline: none !important;
 }
 
+.MuiTextField-root:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+}
 
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-bottom: none !important;
+}
+
+.MuiTextField-root:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: transparent !important;
+}
+
+.input-with-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    /* Adjust the height to accommodate the TextField */
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* center content */
+/* .input-component-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 340px;
+
+} */
+
+.input {
+    background-color: #3A3B3C;
+    display: flex;
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.card-buttons-container {
+    display: flex;
+    height: 45px;
+    border-top: 1px solid #3A3B3C;
+    border-bottom: 1px solid #3A3B3C;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 20px;
+}
+
+.card-buttons {
+    color: #B8BBBF;
+    flex: 1;
+    background-color: transparent;
+}
+
+.card-buttons:hover {
+    background-color: #303031;
+    border-radius: 10px;
+}
+
+.card-container {
+    background-color: #18191A;
+    min-width: 590px;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    max-width: 590px;
+    padding: 20px;
+}
 
 /* right */
 

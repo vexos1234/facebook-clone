@@ -1,3 +1,9 @@
+.MuiOutlinedInput-root:focus {
+    outline: none !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+}
+
 .page-container {
     display: flex;
     margin-top: 50px
