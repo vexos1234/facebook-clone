@@ -1,5 +1,6 @@
 /* input component */
 
+
 .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: transparent !important;
     box-shadow: transparent !important;
@@ -58,7 +59,7 @@
     border-bottom: 1px solid #3A3B3C;
     margin-left: 15px;
     margin-right: 15px;
-    border-radius: 20px;
+
 }
 
 .card-buttons {
@@ -73,13 +74,13 @@
 }
 
 .card-container {
-    background-color: #18191A;
+    background-color: #3A3B3C;
     min-width: 590px;
     max-height: fit-content;
     display: flex;
     flex-direction: column;
     max-width: 590px;
-    padding: 20px;
+
 }
 
 /* right */

@@ -23,6 +23,7 @@ import { useEffect } from "react";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import InputWithButtons from "./InputWithButtons";
+import InputWithButtonsPost from "./InputWithButtonsPost";
 
 function formatDate(inputDate) {
     const months = [
@@ -100,6 +101,7 @@ export default function Cards() {
     console.log(posts);
     return (
         <>
+
             <div className='card-container'>
                 {posts.map((post) => (
                     <Card sx={{ marginBottom: '16px', background: '#242526', color: '#fefefe' }} key={post.id} >
