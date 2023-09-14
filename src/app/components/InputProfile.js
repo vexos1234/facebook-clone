@@ -1,13 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Avatar from "@mui/material/Avatar";
-import TextField from "@mui/material/TextField";
-import "./styles.css";
-import { Divider, IconButton, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  TextField,
+  Typography,
+} from "@mui/material";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
+import "./styles.css";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Image from "next/image";
@@ -28,40 +32,17 @@ const style = {
   boxShadow: 24,
 };
 
-async function getUsers() {
-  const { data } = await axios.get("https://dummyjson.com/users");
-  const res = data.users;
-  return res;
-}
-
-function InputWithButtonsPost() {
+function InputProfile() {
   const [user, setUser] = useState([]);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(() => {
-    async function fetchPosts() {
-      const user = await getUsers();
-      setUser(user);
-    }
-
-    fetchPosts();
-  }, []);
-
   // selecting one user for test
   const selectedPost = user.find((post) => post.id === 1);
 
-  console.log(user);
-
-  if (!user) {
-    return "Loading...";
-  }
-
   return (
     <>
-      {/* post modal */}
-
       <Modal
         sx={{ display: "flex" }}
         open={open}
@@ -118,6 +99,7 @@ function InputWithButtonsPost() {
             <TextField
               multiline
               variant="outlined"
+              onClick={handleOpen}
               sx={{
                 marginBottom: "10px",
                 width: "495px",
@@ -185,8 +167,19 @@ function InputWithButtonsPost() {
           </Button>
         </Box>
       </Modal>
-
-      <div className="input-with-buttons2">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "39px",
+          minWidth: "590px",
+          /* Adjust the height to accommodate the TextField */
+          marginTop: "10px",
+          borderRadius: "8px",
+        }}
+      >
         <div className="avatar-input">
           <Avatar sx={{ bgcolor: "red", marginRight: "5px" }}>A</Avatar>
           <div className="input">
@@ -194,9 +187,9 @@ function InputWithButtonsPost() {
               <TextField
                 fullWidth
                 variant="outlined"
+                onClick={handleOpen}
                 placeholder="What's on your mind?"
                 focused={true}
-                onClick={handleOpen}
                 sx={{
                   display: "flex",
                   width: "520px",
@@ -237,9 +230,9 @@ function InputWithButtonsPost() {
             <Typography sx={{ color: "#B8BBBF" }}>Feeling/activity</Typography>
           </IconButton>
         </div>
-      </div>
+      </Box>
     </>
   );
 }
 
-export default InputWithButtonsPost;
+export default InputProfile;

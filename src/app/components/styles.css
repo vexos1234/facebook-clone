@@ -19,8 +19,24 @@
     border-color: transparent !important;
 }
 
+.avatar-input {
+    display: flex;
+}
+
+.input-with-buttons2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    /* Adjust the height to accommodate the TextField */
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
 .input-with-buttons {
     display: flex;
+
     align-items: center;
     justify-content: center;
     min-height: 39px;
@@ -36,6 +52,29 @@
 }
 
 /* center content */
+.iconbutton-post {
+    width: 188px;
+}
+
+.iconbutton-post:hover {
+    background-color: #3A3B3C;
+    border-radius: 10px;
+}
+
+.post-buttons-container {
+    display: flex;
+    width: fit-content;
+
+}
+
+.divider-post {
+    background-color: #3A3B3C;
+    width: 565px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
 /* .input-component-container {
     display: flex;
     justify-content: center;
@@ -155,7 +194,7 @@
     margin-left: 10px;
 }
 
-.button {
+/* .button {
     border-radius: 10px;
     margin-bottom: 5pxpx;
     transition: background-color 0.1s, border-radius 0.3s;
@@ -171,7 +210,7 @@
     background-color: #303031;
     border-radius: 10px;
 
-}
+} */
 
 /* top */
 .navbar-container {
@@ -220,6 +259,11 @@
 .clickable-icon {
     cursor: pointer;
 }
+
+/* highlight the active icon */
+.clickable-icon.active {
+    color: #1A82F5; /* Change to your active icon color */
+  }
 
 /* 
  .container {

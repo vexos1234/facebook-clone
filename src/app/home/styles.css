@@ -3,14 +3,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
-.card-container {
-    background-color: #3A3B3C;
+.post-container {
+    background-color: #242526;
     min-width: 590px;
-    max-height: fit-content;
     max-width: 590px;
-
+    min-height: 123px;
+    max-height: fit-content;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .MuiOutlinedInput-root:focus {

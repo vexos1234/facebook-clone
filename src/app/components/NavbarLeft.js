@@ -25,60 +25,234 @@ export default function NavbarLeft() {
     <div className="container-left">
       <ButtonGroup orientation="vertical" className="button-group-container">
         <Button
-          startIcon={<AccountCircleIcon />}
+          startIcon={<AccountCircleIcon sx={{ fontSize: "24px" }} />} // Adjust the icon size as needed
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Name
         </Button>
         <Button
           startIcon={<SupervisorAccountIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Friends
         </Button>
-        <Button startIcon={<FeedIcon />} variant="text" className="button">
+        <Button
+          startIcon={<FeedIcon />}
+          variant="text"
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Feeds
         </Button>
         <Button
           startIcon={<SettingsBackupRestoreIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Memories
         </Button>
-        <Button startIcon={<BookmarkIcon />} variant="text" className="button">
+        <Button
+          startIcon={<BookmarkIcon />}
+          variant="text"
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Saved
         </Button>
-        <Button startIcon={<GroupIcon />} variant="text" className="button">
+        <Button
+          startIcon={<GroupIcon />}
+          variant="text"
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Groups
         </Button>
         <Button
           startIcon={<OndemandVideoIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Video
         </Button>
         <Button
           startIcon={<StorefrontIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Marketplace
         </Button>
         <Button
           startIcon={<LocalActivityIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Events
         </Button>
         <Button
-          startIcon={<BarChartIcon />}
+          startIcon={<BarChartIcon sx={{ fontSize: 30 }} />}
           variant="text"
-          className="button icon-button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Ads Manager
         </Button>
         <Button
           startIcon={<ExpandCircleDownIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           See More
         </Button>
         <Divider className="divider" />
@@ -89,7 +263,22 @@ export default function NavbarLeft() {
         <Button
           startIcon={<VideogameAssetIcon />}
           variant="text"
-          className="button">
+          sx={{
+            borderRadius: "10px",
+            marginBottom: "5px",
+            transition: "background-color 0.1s, border-radius 0.3s",
+            height: "52px",
+            width: "360px",
+            borderTopWidth: "4px",
+            borderBottomWidth: "4px",
+            justifyContent: "start",
+            color: "#fefefe",
+            "&:hover": {
+              backgroundColor: "#303031",
+              borderRadius: "10px",
+            },
+          }}
+        >
           Game example
         </Button>
       </ButtonGroup>

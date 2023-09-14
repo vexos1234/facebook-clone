@@ -20,7 +20,8 @@ export default async function ContactList() {
       <ButtonGroup
         orientation="vertical"
         sx={{ backgroundColor: "#18191A" }}
-        className="button-group-contacts">
+        className="button-group-contacts"
+      >
         <Typography>Birthday&apos;s:</Typography>
         {/* map users on birthday */}
         <Button variant="text" className="button2">
