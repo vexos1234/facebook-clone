@@ -68,7 +68,9 @@ const DynamicExpandMore = dynamic(() =>
 
 export default async function Cards() {
   const supabase = createServerComponentClient({ cookies });
-  const data = await supabase.from("posts").select();
+  const data = await supabase
+    .from("posts")
+    .select("*, users(name, user_name, avatar_url)");
   const posts = data.data;
 
   console.log(posts);

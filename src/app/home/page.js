@@ -5,8 +5,21 @@ import ContactList from "../components/ContactList";
 import "./styles.css";
 import InputWithButtonsPost from "../components/InputWithButtonsPost";
 import Cards from "../components/Cards";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function homepage({ users }) {
+export default async function homepage({ users }) {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (session === null) {
+    redirect("/");
+  }
+
   return (
     <>
       {/* top */}

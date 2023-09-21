@@ -10,8 +10,7 @@ import TagFacesIcon from "@mui/icons-material/TagFaces";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import Image from "next/image";
-import axios from "axios";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const style = {
   position: "absolute",
@@ -28,41 +27,51 @@ const style = {
   boxShadow: 24,
 };
 
-async function getUsers() {
-  const { data } = await axios.get("https://dummyjson.com/users");
-  const res = data.users;
-  return res;
-}
-
 function InputWithButtonsPost() {
-  const [user, setUser] = useState([]);
+  const [posts, SetPosts] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const supabase = createClientComponentClient();
+
   useEffect(() => {
-    async function fetchPosts() {
-      const user = await getUsers();
-      setUser(user);
-    }
+    const getSession = async () => {
+      const { data } = await supabase
+        .from("posts")
+        .select("*, user:users(name, avatar_url, user_name)")
+        .order("created_at", { ascending: false });
+      SetPosts(data);
+    };
 
-    fetchPosts();
-  }, []);
+    getSession();
+  }, [supabase.auth]);
 
-  // selecting one user for test
-  const selectedPost = user.find((post) => post.id === 1);
+  // if (!user) {
+  //   return "Loading...";
+  // }
 
-  console.log(user);
-
-  if (!user) {
-    return "Loading...";
-  }
+  console.log("session:", posts);
 
   return (
     <>
       {/* post modal */}
 
-      <Modal
+      {
+      posts?.map(post => {
+          const {
+            id,
+            user,
+            content
+          } = post
+
+          const {
+            user_name: userName,
+            name: userFullName,
+            avatar_url: avatarUrl
+          } = user
+
+<Modal
         sx={{ display: "flex" }}
         open={open}
         onClose={handleClose}
@@ -88,7 +97,7 @@ function InputWithButtonsPost() {
             Create post
           </Typography>
           <Box display="flex" ml={2}>
-            {selectedPost && (
+            {posts && (
               <Avatar
                 sx={{
                   bgcolor: "black",
@@ -99,18 +108,20 @@ function InputWithButtonsPost() {
               >
                 <img
                   alt="profile-picture"
-                  src={selectedPost.image}
+                  src={posts.avatar_url}
                   style={{ height: "36px", width: "36px" }}
                 />
               </Avatar>
             )}
-            {selectedPost && (
+
+            {/* USER NAME */}
+            {session && (
               <Typography
                 id="modal-modal-description"
                 sx={{ mt: 2, color: "#E4E6EB" }}
               >
-                {selectedPost.firstName}&nbsp;
-                {selectedPost.lastName}
+                {session.name}&nbsp;
+                {/* {selectedPost.lastName} */}
               </Typography>
             )}
           </Box>
@@ -238,6 +249,9 @@ function InputWithButtonsPost() {
           </IconButton>
         </div>
       </div>
+        }
+
+      
     </>
   );
 }
