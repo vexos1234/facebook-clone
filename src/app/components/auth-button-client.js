@@ -35,8 +35,6 @@ export function AuthButton() {
     getSession();
   }, []);
 
-  console.log("error:", error);
-  console.log("session:", session);
   return (
     <header>
       {session === null ? (

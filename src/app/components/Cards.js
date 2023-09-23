@@ -68,91 +68,105 @@ const DynamicExpandMore = dynamic(() =>
 
 export default async function Cards() {
   const supabase = createServerComponentClient({ cookies });
-  const data = await supabase
-    .from("posts")
-    .select("*, users(name, user_name, avatar_url)");
-  const posts = data.data;
 
-  console.log(posts);
+  const { data } = await supabase
+    .from("posts")
+    .select("*, user:users(name, avatar_url, user_name)")
+    .order("created_at", { ascending: false });
+
+  const posts = data;
 
   return Array.isArray(posts) && posts.length > 0 ? (
-    <div className="card-container">
-      {posts.map((post) => (
-        <Card
-          sx={{
-            marginBottom: "16px",
-            background: "#242526",
-            color: "#fefefe",
-          }}
-          key={post.id}
-        >
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                R
-              </Avatar>
-            }
-            action={
-              <IconButton
-                sx={{ "&:hover": { backgroundColor: "transparent" } }}
-                aria-label="settings"
-              >
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={<span style={{ fontWeight: "bold" }}>{post.name}</span>}
-            subheader={
-              <span style={{ color: "white" }}>
-                {formatDate(post.created_at)}
-              </span>
-            }
-          />
-          <Typography
-            variant="body2"
-            color="white"
-            sx={{ marginBottom: "5px", marginLeft: "15px" }}
-          >
-            {post.content}
-          </Typography>
-          {post.image ? (
-            <CardMedia
-              component="img"
-              height="194"
-              image={post.image}
-              alt="Paella dish"
-            />
-          ) : null}
-          <CardActions className="card-buttons-container">
-            <IconButton aria-label="Like" className="card-buttons">
-              <ThumbUpIcon
-                sx={{ "&:hover": { backgroundColor: "transparent" } }}
-              />
-              <Typography sx={{ marginLeft: "5px" }}>Like</Typography>
-            </IconButton>
-            <IconButton aria-label="Comments" className="card-buttons">
-              <ChatBubbleOutlineIcon />
-              <Typography sx={{ marginLeft: "5px" }}>Comment</Typography>
-            </IconButton>
-            <IconButton aria-label="Share" className="card-buttons">
-              <ShortcutIcon />
-              <Typography sx={{ marginLeft: "5px" }}>Share</Typography>
-            </IconButton>
-          </CardActions>
-          <InputWithButtons className="input-component-container" />
-          <Typography sx={{ color: "#B0B3B8", marginLeft: "10px" }}>
-            View more comments
-          </Typography>
+    <>
+      {posts?.map((post) => {
+        const { id, user, content } = post;
+        const {
+          user_name: userName,
+          name: userFullName,
+          avatar_url: avatarUrl,
+        } = user;
 
-          <CardContent>
-            <Typography paragraph>comments:</Typography>
-            <Typography paragraph>comment 1</Typography>
-            <Typography paragraph>comment 2</Typography>
-            <Typography paragraph>comment 3</Typography>
-            <Typography>comment 4</Typography>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+        return (
+          <div className="card-container" key={post.id}>
+            <Card
+              sx={{
+                marginBottom: "16px",
+                background: "#242526",
+                color: "#fefefe",
+              }}>
+              <CardHeader
+                avatar={
+                  <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                    <img
+                      alt="avatar"
+                      src={avatarUrl}
+                      style={{ height: "36px", width: "36px" }}
+                    />
+                  </Avatar>
+                }
+                action={
+                  <IconButton
+                    sx={{ "&:hover": { backgroundColor: "transparent" } }}
+                    aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title={
+                  <span style={{ fontWeight: "bold" }}>{userFullName}</span>
+                }
+                subheader={
+                  <span style={{ color: "white" }}>
+                    {formatDate(post.created_at)}
+                  </span>
+                }
+              />
+              <Typography
+                variant="body2"
+                color="white"
+                sx={{ marginBottom: "5px", marginLeft: "15px" }}>
+                {post.content}
+              </Typography>
+              {post.image ? (
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={post.image}
+                  alt="Paella dish"
+                />
+              ) : null}
+              <CardActions className="card-buttons-container">
+                <IconButton aria-label="Like" className="card-buttons">
+                  <ThumbUpIcon
+                    sx={{ "&:hover": { backgroundColor: "transparent" } }}
+                  />
+                  <Typography sx={{ marginLeft: "5px" }}>Like</Typography>
+                </IconButton>
+                <IconButton aria-label="Comments" className="card-buttons">
+                  <ChatBubbleOutlineIcon />
+                  <Typography sx={{ marginLeft: "5px" }}>Comment</Typography>
+                </IconButton>
+                <IconButton aria-label="Share" className="card-buttons">
+                  <ShortcutIcon />
+                  <Typography sx={{ marginLeft: "5px" }}>Share</Typography>
+                </IconButton>
+              </CardActions>
+              <InputWithButtons className="input-component-container" />
+              <Typography sx={{ color: "#B0B3B8", marginLeft: "10px" }}>
+                View more comments
+              </Typography>
+
+              <CardContent>
+                <Typography paragraph>comments:</Typography>
+                <Typography paragraph>comment 1</Typography>
+                <Typography paragraph>comment 2</Typography>
+                <Typography paragraph>comment 3</Typography>
+                <Typography>comment 4</Typography>
+              </CardContent>
+            </Card>
+          </div>
+        );
+      })}
+    </>
   ) : (
     <h1>Loading</h1>
   );

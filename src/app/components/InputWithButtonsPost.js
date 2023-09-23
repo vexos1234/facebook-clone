@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { ComposePost } from "./compose-post";
 
 const style = {
   position: "absolute",
@@ -51,13 +52,11 @@ function InputWithButtonsPost() {
   //   return "Loading...";
   // }
 
-  console.log("session:", posts);
-
   return (
     <>
       {/* post modal */}
 
-      {
+      {/* {
       posts?.map(post => {
           const {
             id,
@@ -69,15 +68,14 @@ function InputWithButtonsPost() {
             user_name: userName,
             name: userFullName,
             avatar_url: avatarUrl
-          } = user
+          } = user */}
 
-<Modal
+      <Modal
         sx={{ display: "flex" }}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+        aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography
             display="flex"
@@ -92,8 +90,7 @@ function InputWithButtonsPost() {
             }}
             id="modal-modal-title"
             variant="h6"
-            component="h2"
-          >
+            component="h2">
             Create post
           </Typography>
           <Box display="flex" ml={2}>
@@ -104,8 +101,7 @@ function InputWithButtonsPost() {
                   marginTop: "5px",
                   marginRight: "10px",
                   marginBottom: "5px",
-                }}
-              >
+                }}>
                 <img
                   alt="profile-picture"
                   src={posts.avatar_url}
@@ -115,42 +111,17 @@ function InputWithButtonsPost() {
             )}
 
             {/* USER NAME */}
-            {session && (
+            {posts && (
               <Typography
                 id="modal-modal-description"
-                sx={{ mt: 2, color: "#E4E6EB" }}
-              >
-                {session.name}&nbsp;
+                sx={{ mt: 2, color: "#E4E6EB" }}>
+                {posts.name}&nbsp;
                 {/* {selectedPost.lastName} */}
               </Typography>
             )}
           </Box>
           <Box flexGrow={1}>
-            <TextField
-              multiline
-              variant="outlined"
-              sx={{
-                marginBottom: "10px",
-                width: "495px",
-                backgroundColor: "#242526",
-                border: "none",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "transparent",
-                },
-                "& .MuiInputBase-input": {
-                  color: "#E4E6EB",
-                  fontSize: "25px",
-                },
-                "& .MuiInputLabel-root, & .MuiInputLabel-outlined": {
-                  color: "#B0B3B",
-                },
-                "& .MuiInputBase-multiline": {
-                  maxHeight: "300px",
-                  overflow: "auto",
-                },
-              }}
-              placeholder="What's on your mind?"
-            />
+            <ComposePost />
           </Box>
           <Box
             sx={{
@@ -161,39 +132,17 @@ function InputWithButtonsPost() {
               height: "57px",
               marginLeft: "15px",
               marginRight: "15px",
-            }}
-          >
+            }}>
             <Typography
               sx={{
                 alignItems: "center",
                 display: "flex",
                 marginLeft: "20px",
-              }}
-            >
+              }}>
               Add to your post
             </Typography>
             {/* icons for gif, photos, emoji, feelings, etc... */}
           </Box>
-          <Button
-            sx={{
-              width: "466.8px",
-              borderRadius: "10px",
-              height: "36px",
-              marginLeft: "15px",
-              marginTop: "15px",
-              marginBottom: "15px",
-              backgroundColor: "#2374E1",
-              color: "#fff",
-
-              "&:hover": {
-                backgroundColor: "#3982E4",
-                transition: "background-color 0.3s ease",
-              },
-            }}
-            variant="outlined"
-          >
-            Post
-          </Button>
         </Box>
       </Modal>
 
@@ -249,9 +198,6 @@ function InputWithButtonsPost() {
           </IconButton>
         </div>
       </div>
-        }
-
-      
     </>
   );
 }
